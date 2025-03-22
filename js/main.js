@@ -4,18 +4,18 @@ isClicked=!isClicked;
 return isClicked;
 }
 
-function showMenu(){
+function showMenu(dmenu){
 dmenu.classList.remove('js-menu-animate-hide');
 dmenu.classList.add('js-menu-show');
 
 }
 
-function hideMenu(){
+function hideMenu(dmenu){
 
 dmenu.classList.add('js-menu-animate-hide');
 timer=setTimeout(function(){
   dmenu.classList.remove('js-menu-show');
-}, 750)
+}, 950)
 
 }
 
@@ -27,9 +27,9 @@ dashboard=document.querySelector('.dashboard');
 menu.addEventListener('click',function(){
 dashboard.classList.toggle('js-d-content');
 if(isOn()){
-showMenu();
+showMenu(dmenu);
 }else{
-hideMenu();
+hideMenu(dmenu);
 }
 
 });
@@ -85,12 +85,26 @@ function showMenuOnStart(){
 
 }
 
+
+function changeTheme(){
+theme=document.querySelector('.theme');
+tMenu=document.querySelector('.t-menu');
+dFooter=document.querySelector('.d-content-f');
+theme.addEventListener('click',function(e){
+e.preventDefault();
+
+tMenu.classList.toggle('js-theme');
+dFooter.classList.toggle('js-theme');
+})
+}
+
 window.addEventListener('DOMContentLoaded',function(){
 
 toggleMainMenu();
 toggleSubMenu();
-showMenuOnStart();
-allowContentScroll();
+//changeTheme();
+//showMenuOnStart();
+//allowContentScroll();
 })
 
 
